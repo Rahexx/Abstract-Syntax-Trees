@@ -1,4 +1,4 @@
-{
+export default {
     "ast": {
         "nodeType": "element",
         "tagName": "div",
