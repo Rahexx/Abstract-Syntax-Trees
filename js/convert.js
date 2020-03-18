@@ -29,36 +29,28 @@ function renderAttributess(attributes) {
     return text
 }
 
-function createTag(object) {
-    let tag = "";
-    let textAtribut = renderAttributess(object.attributes);
-
-    if (!checkSelfClosingTag(object.tagName)) {
-        tag += `<${object.tagName} ${textAtribut}></${object.tagName}>`;
-    } else {
-        tag += `<${object.tagName} ${textAtribut}/>`;
-    }
-
-    return tag;
-}
-
 function renderChildren(children) {
     let text = "";
-    let flag = false;
+    let flag = true;
 
     for (const key in children) {
 
-        text += createTag(children[key]);
-    }
+        if (children[key].nodeType == "element") {
+            text += createStartTag(children[key]);
+        }
 
+        if (children[key].nodeType === "text") {
+            text += children[key].value;
+        }
+    }
     return text
 }
 
 function createStartTag(object) {
+
     let tag = "";
     let textAtribut = renderAttributess(object.attributes);
     let children = renderChildren(object.children);
-    console.log(children);
 
     if (!checkSelfClosingTag(object.tagName)) {
         tag += `<${object.tagName} ${textAtribut}>${children}</${object.tagName}>`;
