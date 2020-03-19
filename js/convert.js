@@ -20,6 +20,7 @@ function renderAttributess(attributes) {
     let text = "";
 
     for (let i = 0; i < attributes.length; i++) {
+
         for (const key in attributes[i]) {
             if (key === "name") text += `${attributes[i][key]}=`;
             if (key === "value") text += '"' + attributes[i][key] + '" ';
@@ -35,13 +36,9 @@ function renderChildren(children) {
 
     for (const key in children) {
 
-        if (children[key].nodeType == "element") {
-            text += createStartTag(children[key]);
-        }
+        if (children[key].nodeType == "element") text += createStartTag(children[key]);
+        if (children[key].nodeType === "text") text += children[key].value;
 
-        if (children[key].nodeType === "text") {
-            text += children[key].value;
-        }
     }
     return text
 }
