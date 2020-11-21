@@ -1,4 +1,4 @@
-# [CardVerify](https://github.com/Rahexx/CardVerify)
+# [Abstract-Syntax-Trees](https://github.com/Rahexx/Abstract-Syntax-Trees)
 
 > This is a practical project from Opanuj JavaScript course, the project is about convert Abstract Syntax Trees(AST) to String.
 
